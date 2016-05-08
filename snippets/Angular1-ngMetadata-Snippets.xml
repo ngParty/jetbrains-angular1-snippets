@@ -1,0 +1,88 @@
+<templateSet group="Angular1+ngMetadata Snippets">
+  <template name="ng-bootstrap" value="import { enableProdMode } from 'ng-metadata/core';&#10;import { bootstrap } from 'ng-metadata/platform';&#10;&#10;import { $ROOT_MODULE_NAME$Module } from './$PATH_TO_ROOT_MODULE$';&#10;&#10;// enableProdMode();&#10;&#10;bootstrap( $ROOT_MODULE_NAME$Module );&#10;$END$" description="Angular1 bootstrap snippet" toReformat="false" toShortenFQNames="true">
+    <variable name="PATH_TO_ROOT_MODULE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ROOT_MODULE_NAME" expression="capitalize(PATH_TO_ROOT_MODULE)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-component" value="import { Component, OnInit } from 'ng-metadata/core';&#10;&#10;@Component({&#10;    selector: '$PREFIX$-$SELECTOR$',&#10;    template: `$TEMPLATE$`&#10;})&#10;export class $COMPONENT_NAME$Component implements OnInit {&#10;    constructor() { }&#10;    &#10;    ngOnInit() { }&#10;    $END$&#10;}" description="Angular1 component snippet" toReformat="false" toShortenFQNames="true">
+    <variable name="PREFIX" expression="" defaultValue="&quot;my&quot;" alwaysStopAt="true" />
+    <variable name="SELECTOR" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TEMPLATE" expression="" defaultValue="&quot;Hello world&quot;" alwaysStopAt="true" />
+    <variable name="COMPONENT_NAME" expression="capitalize(camelCase(SELECTOR))" defaultValue="&quot;ComponentName&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-directive" value="import { Directive, OnInit } from 'ng-metadata/core';&#10;&#10;@Directive({&#10;    selector: '[$PREFIX$$SELECTOR$]'&#10;})&#10;export class $DIRECTIVE_NAME$Directive implements OnInit {&#10;    constructor() { }&#10;    &#10;    ngOnInit() { }&#10;    $END$&#10;}" description="Angular1 directive snippet" toReformat="false" toShortenFQNames="true">
+    <variable name="PREFIX" expression="" defaultValue="&quot;my&quot;" alwaysStopAt="true" />
+    <variable name="SELECTOR" expression="" defaultValue="&quot;selector&quot;" alwaysStopAt="true" />
+    <variable name="DIRECTIVE_NAME" expression="capitalize(camelCase(SELECTOR))" defaultValue="&quot;DirectiveName&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-module" value="import * as angular from 'angular';&#10;import { provide } from 'ng-metadata/core';&#10;&#10;export const $ModuleName$Module = angular&#10;    .module( '$PREFIX$$ModuleNameString$', [$requireModule$] )$END$&#10;    .name;" description="Angular1 module snippet" toReformat="true" toShortenFQNames="true">
+    <variable name="ModuleName" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ModuleNameString" expression="decapitalize(ModuleName)" defaultValue="" alwaysStopAt="true" />
+    <variable name="PREFIX" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+    <variable name="requireModule" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-pipe" value="import { Pipe, PipeTransform } from 'ng-metadata/core';&#10;&#10;@Pipe({&#10;    name: '$NAME$'&#10;})&#10;&#10;export class $PIPE_NAME$Pipe implements PipeTransform {&#10;    transform(value: any, args: any[]): any {&#10;        $END$&#10;    }&#10;}" description="Angular pipe snippet" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+    <variable name="PIPE_NAME" expression="" defaultValue="&quot;PipeName&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-provide-c" value=".constant(...provide('$TOKEN$',{useValue:$CONSTANT_REF$}))$END$" description="Angular1 register constant snippet" toReformat="true" toShortenFQNames="true">
+    <variable name="TOKEN" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONSTANT_REF" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-provide-d" value=".directive(...provide($DIRECTIVE_REF$))$END$" description="Angular1 register directive/component snippet" toReformat="true" toShortenFQNames="true">
+    <variable name="DIRECTIVE_REF" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-provide-p" value=".filter(...provide($PIPE_REF$})$END$" description="Angular1 register pipe snippet" toReformat="true" toShortenFQNames="true">
+    <variable name="PIPE_REF" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-provide-s" value=".service(...provide($SERVICE_REF$))$END$" description="Angular1 register service snippet" toReformat="true" toShortenFQNames="true">
+    <variable name="SERVICE_REF" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-provide-st" value=".service(...provide('$TOKEN$',{useClass:$SERVICE_REF$}))$END$" description="Angular1 register service via token snippet" toReformat="true" toShortenFQNames="true">
+    <variable name="TOKEN" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SERVICE_REF" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-provide-v" value=".value(...provide('$TOKEN$',{useValue:$VALUE_REF$}))$END$" description="Angular1 register value snippet" toReformat="true" toShortenFQNames="true">
+    <variable name="TOKEN" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VALUE_REF" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ng-service" value="import { Injectable } from 'ng-metadata/core';&#10;&#10;@Injectable()&#10;export class $SERVICE_NAME$$SUFFIX$ {&#10;&#10;    constructor($END$) { }&#10;&#10;}" description="Angular1 service snippet" toReformat="false" toShortenFQNames="true">
+    <variable name="SERVICE_NAME" expression="capitalize(SERVICE_NAME)" defaultValue="" alwaysStopAt="true" />
+    <variable name="SUFFIX" expression="" defaultValue="&quot;Service&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+</templateSet>
